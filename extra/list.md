@@ -1,20 +1,20 @@
 # List
 
-### 1. ความรู้เบื้องต้นเกี่ยวกับ List
+## 1. ความรู้เบื้องต้นเกี่ยวกับ List
 
-**1.1 List คืออะไร**
+### 1.1 List คืออะไร
 
 - List เป็นโครงสร้างข้อมูลแบบลำดับ (Sequence Data Type) ใน Python ที่ใช้จัดเก็บข้อมูลหลายค่าไว้ในตัวแปรเดียว
 - List สามารถเก็บข้อมูลได้หลากหลายประเภท เช่น ตัวเลข, สตริง, หรือแม้แต่ List อื่นๆ
 - List เป็นโครงสร้างข้อมูลที่มีลำดับ (Ordered) และสามารถแก้ไขข้อมูลได้ (Mutable)
 
-**1.2 ประโยชน์และการใช้งานของ List**
+### 1.2 ประโยชน์และการใช้งานของ List
 
 - ใช้เก็บกลุ่มของข้อมูลที่มีความสัมพันธ์กัน เช่น รายชื่อนักเรียน, คะแนนสอบ, หรือรายการสินค้า
 - ช่วยให้การจัดการและเข้าถึงข้อมูลทำได้ง่ายและมีประสิทธิภาพมากขึ้น
 - สามารถนำไปประยุกต์ใช้ในการแก้ปัญหาและพัฒนาโปรแกรมต่างๆ ได้
 
-**1.3 การสร้าง List**
+## 1.3 การสร้าง List
 
 - List สร้างได้โดยใช้เครื่องหมาย [] (Square Brackets) และคั่นแต่ละข้อมูลด้วยเครื่องหมาย , (Comma)
 - ตัวอย่างการสร้าง List เก็บตัวเลข:
@@ -29,7 +29,7 @@ numbers = [1, 2, 3, 4, 5]
 fruits = ['apple', 'banana', 'orange']
 ```
 
-**1.4 การเข้าถึงและแก้ไขข้อมูลใน List**
+## 1.4 การเข้าถึงและแก้ไขข้อมูลใน List
 
 - ในการเข้าถึงข้อมูลใน List สามารถใช้ Index (ตำแหน่ง) ของข้อมูลนั้นๆ ได้
 - Index ใน List เริ่มต้นที่ 0 สำหรับข้อมูลตัวแรก และเพิ่มขึ้นทีละ 1 สำหรับข้อมูลถัดไป
@@ -49,7 +49,7 @@ fruits[1] = 'grape'
 print(fruits)  # Output: ['apple', 'grape', 'orange']
 ```
 
-**1.5 การใช้ Negative Index**
+## 1.5 การใช้ Negative Index
 
 - นอกจาก Index ปกติแล้ว สามารถใช้ Negative Index ในการเข้าถึงข้อมูลจากท้าย List ได้ด้วย
 - Negative Index เริ่มต้นที่ -1 สำหรับข้อมูลตัวสุดท้าย และลดลงทีละ 1 สำหรับข้อมูลก่อนหน้า
@@ -61,9 +61,9 @@ print(fruits[-1])  # Output: 'orange'
 print(fruits[-2])  # Output: 'banana'
 ```
 
-### 2. การจัดการและปรับเปลี่ยน List
+## 2. การจัดการและปรับเปลี่ยน List
 
-**2.1 การเพิ่มและลบข้อมูลใน List**
+### 2.1 การเพิ่มและลบข้อมูลใน List
 
 - append(element): ใช้เพิ่มข้อมูล element ไปท้าย List
 
@@ -114,7 +114,7 @@ numbers.clear()
 print(numbers)  # Output: []
 ```
 
-**2.2 การค้นหาข้อมูลใน List**
+### 2.2 การค้นหาข้อมูลใน List
 
 - index(element): ใช้หา Index ของข้อมูล element ใน List (ถ้าไม่พบจะเกิด ValueError)
 
@@ -132,7 +132,7 @@ count = fruits.count('banana')
 print(count)  # Output: 2
 ```
 
-**2.3 การเรียงลำดับข้อมูลใน List**
+### 2.3 การเรียงลำดับข้อมูลใน List
 
 - sort(): ใช้เรียงลำดับข้อมูลใน List จากน้อยไปมาก (สามารถกำหนด Key Function และ Reverse ได้)
 
@@ -150,7 +150,7 @@ numbers.reverse()
 print(numbers)  # Output: [5, 4, 3, 2, 1]
 ```
 
-**2.4 การคัดลอก List**
+### 2.4 การคัดลอก List
 
 - copy(): ใช้สร้าง Shallow Copy ของ List
 
@@ -168,9 +168,9 @@ new_list = list(original_list)
 print(new_list)  # Output: [1, 2, 3]
 ```
 
-### 3. การใช้ List Comprehension
+## 3. การใช้ List Comprehension
 
-**3.1 รูปแบบและไวยากรณ์ของ List Comprehension**
+### 3.1 รูปแบบและไวยากรณ์ของ List Comprehension
 
 - List Comprehension เป็นวิธีการสร้าง List ใหม่จากการประมวลผล Iterable อื่น เช่น List, Tuple, หรือ Dictionary
 - รูปแบบทั่วไปของ List Comprehension:
@@ -184,13 +184,13 @@ new_list = [expression for item in iterable if condition]
 - `iterable`: Iterable ที่ต้องการประมวลผล เช่น List, Tuple, หรือ Dictionary
 - `condition` (ไม่จำเป็น): เงื่อนไขที่ใช้กรองรายการจาก Iterable
 
-**3.2 การสร้าง List ด้วย List Comprehension**
+  3.2 การสร้าง List ด้วย List Comprehension
 
 - ตัวอย่างการสร้าง List ใหม่ที่เก็บค่ากำลังสองของตัวเลขใน List เดิม:
 
 ```python
 numbers = [1, 2, 3, 4, 5]
-squared_numbers = [x ** 2 for x in numbers]
+squared_numbers = [x  2 for x in numbers]
 print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
 ```
 
@@ -202,7 +202,7 @@ lengths = [len(fruit) for fruit in fruits]
 print(lengths)  # Output: [5, 6, 6]
 ```
 
-**3.3 การใช้เงื่อนไขใน List Comprehension**
+### 3.3 การใช้เงื่อนไขใน List Comprehension
 
 - สามารถใช้เงื่อนไข `if` ใน List Comprehension เพื่อกรองรายการที่ต้องการได้
 - ตัวอย่างการสร้าง List ใหม่ที่เก็บเฉพาะตัวเลขคู่จาก List เดิม:
@@ -224,9 +224,9 @@ print(labels)  # Output: ['odd', 'even', 'odd', 'even', 'odd']
 
 List Comprehension เป็นเครื่องมือที่ทรงพลังและช่วยให้สามารถสร้าง List ใหม่ได้อย่างกระชับและมีประสิทธิภาพ โดยสามารถใช้นิพจน์และเงื่อนไขต่างๆ ในการกำหนดค่าและกรองรายการตามต้องการ
 
-### การใช้ List กับ Loop และ Conditional Statement
+## 4. การใช้ List กับ Loop และ Conditional Statement
 
-**4.1 การวนลูปข้อมูลใน List ด้วย for loop**
+### 4.1 การวนลูปข้อมูลใน List ด้วย for loop
 
 - ใช้ for loop เพื่อวนลูปและเข้าถึงข้อมูลในแต่ละรายการของ List
 - รูปแบบการใช้ for loop กับ List:
@@ -258,7 +258,7 @@ for num in numbers:
 print(sum)  # Output: 15
 ```
 
-**4.2 การใช้ List กับ if-else statement**
+### 4.2 การใช้ List กับ if-else statement
 
 - สามารถใช้ if-else statement ร่วมกับ List เพื่อตรวจสอบเงื่อนไขและดำเนินการตามต้องการ
 - ตัวอย่างการใช้ if-else statement เพื่อตรวจสอบว่ามีรายการที่ต้องการอยู่ใน List หรือไม่:
@@ -291,9 +291,9 @@ for num in numbers:
 
 การใช้ List กับ Loop และ Conditional Statement เป็นเทคนิคที่มีประโยชน์มากในการประมวลผลและตรวจสอบข้อมูลใน List โดยสามารถใช้ for loop ในการวนลูปและเข้าถึงข้อมูลในแต่ละรายการ และใช้ if-else statement ในการตรวจสอบเงื่อนไขและดำเนินการตามต้องการ
 
-### การประยุกต์ใช้ List ในการแก้ปัญหา
+### 5. การประยุกต์ใช้ List ในการแก้ปัญหา
 
-**5.1 ตัวอย่างการใช้ List ในการแก้ปัญหาต่างๆ**
+### 5.1 ตัวอย่างการใช้ List ในการแก้ปัญหาต่างๆ
 
 - List เป็นโครงสร้างข้อมูลที่มีประโยชน์และสามารถนำไปประยุกต์ใช้ในการแก้ปัญหาหลากหลายประเภท
 - ตัวอย่างการใช้ List เพื่อเก็บข้อมูลและคำนวณค่าเฉลี่ย:
