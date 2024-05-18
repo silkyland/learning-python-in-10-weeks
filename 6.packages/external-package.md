@@ -201,3 +201,72 @@ External package เป็นส่วนสำคัญในระบบนิ
 - เมื่อสร้างโปรเจ็กต์ใหม่ ให้สร้าง virtual environment เป็นขั้นตอนแรกก่อนติดตั้ง package ใดๆ
 
 การใช้ virtual environment เป็นแนวปฏิบัติที่ดีในการพัฒนาซอฟต์แวร์ เนื่องจากช่วยให้สภาพแวดล้อมการพัฒนามีความเป็นอิสระ ป้องกันความขัดแย้งของ package และทำให้การจัดการโปรเจ็กต์เป็นไปอย่างง่ายดายและเป็นระเบียบมากขึ้น การใช้ virtual environment ควบคู่ไปกับการจัดการ dependencies ผ่านไฟล์ requirements.txt จะช่วยให้นักพัฒนาสามารถทำงานร่วมกันได้อย่างมีประสิทธิภาพและส่งมอบซอฟต์แวร์ที่มีคุณภาพสูง
+
+ตัวอย่างการใช้งาน NumPy ในการสร้าง จัดการ และคำนวณกับอาร์เรย์:
+
+```python
+import numpy as np
+
+# สร้างอาร์เรย์
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+print("arr1:", arr1)
+print("arr2:\n", arr2)
+
+# ค้นหาขนาดและมิติของอาร์เรย์
+print("Shape of arr1:", arr1.shape)
+print("Shape of arr2:", arr2.shape)
+
+# การเข้าถึงและแก้ไขสมาชิกในอาร์เรย์
+print("arr1[2]:", arr1[2])
+arr1[2] = 10
+print("Modified arr1:", arr1)
+
+# สร้างอาร์เรย์ด้วยฟังก์ชัน
+zeros_arr = np.zeros((3, 4))
+ones_arr = np.ones((2, 2))
+print("Zeros array:\n", zeros_arr)
+print("Ones array:\n", ones_arr)
+
+# การคำนวณทางคณิตศาสตร์
+arr3 = np.array([1, 2, 3])
+arr4 = np.array([4, 5, 6])
+
+print("arr3 + arr4:", arr3 + arr4)
+print("arr3 * 2:", arr3 * 2)
+print("arr3 dot arr4:", np.dot(arr3, arr4))
+
+# การใช้ฟังก์ชันในการคำนวณ
+print("Sum of arr3:", np.sum(arr3))
+print("Mean of arr4:", np.mean(arr4))
+print("Standard deviation of arr4:", np.std(arr4))
+```
+
+ผลลัพธ์:
+
+```
+arr1: [1 2 3 4 5]
+arr2:
+ [[1 2 3]
+ [4 5 6]]
+Shape of arr1: (5,)
+Shape of arr2: (2, 3)
+arr1[2]: 3
+Modified arr1: [ 1  2 10  4  5]
+Zeros array:
+ [[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+Ones array:
+ [[1. 1.]
+ [1. 1.]]
+arr3 + arr4: [5 7 9]
+arr3 * 2: [2 4 6]
+arr3 dot arr4: 32
+Sum of arr3: 6
+Mean of arr4: 5.0
+Standard deviation of arr4: 0.816496580927726
+```
+
+ตัวอย่างนี้แสดงให้เห็นถึงวิธีการสร้างอาร์เรย์ การเข้าถึงและแก้ไขสมาชิกในอาร์เรย์ การคำนวณทางคณิตศาสตร์พื้นฐาน และการใช้ฟังก์ชันต่างๆ ใน NumPy เพื่อคำนวณทางสถิติ NumPy ยังมีความสามารถอีกมากมายในการจัดการและคำนวณกับอาร์เรย์หลายมิติซึ่งเป็นประโยชน์อย่างยิ่งในการประมวลผลข้อมูลทางคณิตศาสตร์และวิทยาศาสตร์
