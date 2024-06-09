@@ -734,4 +734,107 @@ Metaclass และการปรับแต่ง Class Creation:
 
 สรุปแล้ว การออกแบบและพัฒนาโปรแกรมเชิงวัตถุที่ดีนั้นต้องอาศัยทั้งความรู้ ประสบการณ์ และความใส่ใจในรายละเอียด ไม่ว่าจะเป็นการนำหลักการ SOLID มาปรับใช้ การเลือกใช้ inheritance และ composition อย่างเหมาะสม การเขียน unit test เพื่อทดสอบความถูกต้อง รวมถึงการศึกษา design patterns และ best practices จากโปรเจคและไลบรารีชั้นนำต่างๆ
 
-สิ่งสำคัญคือต้องฝึกฝนและพัฒนาทักษะการออกแบบและเขียนโปรแกรมเชิงวัตถุอย่างต่อเนื่อง รวมถึงเปิดใจเรียนรู้สิ่งใหม่ๆอยู่เสมอ เพื่อให้สามารถสร้างซอฟต์แวร์ที่มีคุณภาพ ตอบโจทย์ความต้องการ และง่ายต่อการบำรุงรักษาในระยะยาวได้อย่างแท้จริงครับ
+สิ่งสำคัญคือต้องฝึกฝนและพัฒนาทักษะการออกแบบและเขียนโปรแกรมเชิงวัตถุอย่างต่อเนื่อง รวมถึงเปิดใจเรียนรู้สิ่งใหม่ๆอยู่เสมอ เพื่อให้สามารถสร้างซอฟต์แวร์ที่มีคุณภาพ ตอบโจทย์ความต้องการ และง่ายต่อการบำรุงรักษาในระยะยาวได้อย่างแท้จริง
+
+## แบบฝึกหัด
+
+ได้เลยครับ ผมมีแบบฝึกหัดพร้อมเฉลย 2 ข้อดังนี้
+
+แบบฝึกหัดที่ 1: การสร้าง Class และ Inheritance
+
+จงสร้าง class สำหรับจำลองการทำงานของรูปทรงเรขาคณิต ดังนี้
+
+- สร้าง class ชื่อ `Shape` ซึ่งมี attribute ชื่อ `color` และมี method ชื่อ `area()` ซึ่ง return ค่าพื้นที่ของรูปทรง (ให้ return 0 ในคลาส `Shape`)
+- สร้าง subclass ชื่อ `Rectangle` ที่สืบทอดจาก `Shape` และมี attribute ชื่อ `width` และ `height` พร้อมทั้ง implement method `area()` ให้ return ค่าพื้นที่ของสี่เหลี่ยมผืนผ้า
+- สร้าง subclass ชื่อ `Circle` ที่สืบทอดจาก `Shape` และมี attribute ชื่อ `radius` พร้อมทั้ง implement method `area()` ให้ return ค่าพื้นที่ของวงกลม
+
+เฉลย:
+
+```python
+class Shape:
+    def __init__(self, color):
+        self.color = color
+
+    def area(self):
+        return 0
+
+class Rectangle(Shape):
+    def __init__(self, color, width, height):
+        super().__init__(color)
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+rect = Rectangle("Red", 3, 4)
+print(rect.color)  # Output: Red
+print(rect.area())  # Output: 12
+
+circ = Circle("Blue", 5)
+print(circ.color)  # Output: Blue
+print(circ.area())  # Output: 78.5
+```
+
+แบบฝึกหัดที่ 2: Polymorphism และ Encapsulation
+
+จงสร้าง class สำหรับจำลองการทำงานของ bank account ดังนี้
+
+- สร้าง class ชื่อ `BankAccount` ซึ่งมี attribute ชื่อ `balance` (ให้เป็น private attribute) และมี method `deposit()` และ `withdraw()` สำหรับฝากและถอนเงิน
+- สร้าง subclass ชื่อ `SavingsAccount` ที่สืบทอดจาก `BankAccount` และมี method ชื่อ `add_interest()` ซึ่งจะเพิ่มดอกเบี้ยเข้าไปใน balance (ให้คิดดอกเบี้ย 1% ต่อครั้ง)
+- สร้าง subclass ชื่อ `CurrentAccount` ที่สืบทอดจาก `BankAccount` และมี attribute ชื่อ `overdraft_limit` ซึ่งจะอนุญาตให้ถอนเงินเกินจาก balance ได้ไม่เกินกำหนด
+
+เฉลย:
+
+```python
+class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance
+
+    def deposit(self, amount):
+        self._balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self._balance:
+            self._balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self._balance
+
+class SavingsAccount(BankAccount):
+    def add_interest(self):
+        interest = self._balance * 0.01
+        self.deposit(interest)
+
+class CurrentAccount(BankAccount):
+    def __init__(self, balance, overdraft_limit):
+        super().__init__(balance)
+        self.overdraft_limit = overdraft_limit
+
+    def withdraw(self, amount):
+        if amount <= self._balance + self.overdraft_limit:
+            self._balance -= amount
+        else:
+            print("Exceeds overdraft limit")
+
+savings = SavingsAccount(1000)
+savings.add_interest()
+print(savings.get_balance())  # Output: 1010.0
+
+current = CurrentAccount(1000, 500)
+current.withdraw(1200)
+print(current.get_balance())  # Output: -200
+current.withdraw(800)  # Output: Exceeds overdraft limit
+```
+
+แบบฝึกหัดทั้ง 2 ข้อนี้ช่วยให้ฝึกฝนการประยุกต์ใช้แนวคิดสำคัญต่างๆของ OOP เช่น inheritance, polymorphism และ encapsulation ในการออกแบบ class และ object ให้มีพฤติกรรมตามที่ต้องการ หากมีข้อสงสัยเพิ่มเติมสามารถสอบถามได้เลยครับ
