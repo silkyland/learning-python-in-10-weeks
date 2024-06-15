@@ -836,5 +836,3 @@ current.withdraw(1200)
 print(current.get_balance())  # Output: -200
 current.withdraw(800)  # Output: Exceeds overdraft limit
 ```
-
-แบบฝึกหัดทั้ง 2 ข้อนี้ช่วยให้ฝึกฝนการประยุกต์ใช้แนวคิดสำคัญต่างๆของ OOP เช่น inheritance, polymorphism และ encapsulation ในการออกแบบ class และ object ให้มีพฤติกรรมตามที่ต้องการ หากมีข้อสงสัยเพิ่มเติมสามารถสอบถามได้เลยครับ
